@@ -10,7 +10,7 @@ def add_matrices2D(mat1, mat2):
     if len(mat1[0]) != len(mat2[0]):
         return None
 
-    new_matrix = []
+    result = []
 
     for row in range(len(mat1)):
         new_row = []
@@ -18,6 +18,6 @@ def add_matrices2D(mat1, mat2):
         for column in range(len(mat1[row])):
             new_row.append(mat1[row][column] + mat2[row][column])
 
-        new_matrix.append(new_row)
+        result.append(new_row)
 
-    return new_matrix
+    return result
