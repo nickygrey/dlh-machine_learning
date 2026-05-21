@@ -11,5 +11,4 @@ def determinant(matrix):
         if not isinstance(row, list):
             raise TypeError("matrix must be a list of lists")
     
-    # ... rest of clean, simple code ...
     return det
