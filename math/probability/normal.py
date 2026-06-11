@@ -66,3 +66,23 @@ class Normal:
         denominator = self.stddev * ((2 * pi) ** 0.5)
 
         return float((e ** exponent) / denominator)
+
+    def cdf(self, x):
+        """Calculate the value of the CDF for a given x-value.
+
+        Args:
+            x (float): The x-value.
+
+        Returns:
+            float: The CDF value for x.
+        """
+        pi = 3.1415926536
+
+        val = (x - self.mean) / (self.stddev * (2 ** 0.5))
+
+        erf_val = (2 / (pi ** 0.5)) * (
+            val - (val ** 3) / 3 + (val ** 5) / 10 -
+            (val ** 7) / 42 + (val ** 9) / 216
+        )
+
+        return float(0.5 * (1 + erf_val))
