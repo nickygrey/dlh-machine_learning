@@ -64,3 +64,25 @@ class Binomial:
         combination = fact_n // (fact_k * fact_nk)
         pmf_val = combination * (self.p ** k) * ((1 - self.p) ** (self.n - k))
         return float(pmf_val)
+
+    def cdf(self, k):
+        """Calculate the value of the CDF for a given number of successes.
+
+        Args:
+            k (int): The number of successes.
+
+        Returns:
+            float: The CDF value for k.
+        """
+        if type(k) is not int:
+            k = int(k)
+        if k < 0:
+            return 0
+
+        total_cdf = 0.0
+        limit = k if k < self.n else self.n
+
+        for i in range(limit + 1):
+            total_cdf += self.pmf(i)
+
+        return float(total_cdf)
