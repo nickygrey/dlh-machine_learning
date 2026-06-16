@@ -25,4 +25,5 @@ def likelihood(x, n, P):
         den *= i
     comb = num // den
 
-    return comb * (P ** x) * ((1 - P) ** (n - x))
+    out = comb * (P ** x) * ((1 - P) ** (n - x))
+    return out.astype(float)
