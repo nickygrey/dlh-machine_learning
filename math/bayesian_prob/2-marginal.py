@@ -36,4 +36,4 @@ def marginal(x, n, P, Pr):
     likelihood = comb * (P ** x) * ((1 - P) ** (n - x))
     intersect = likelihood * Pr
 
-    return float(np.sum(intersect))
+    return np.sum(intersect.astype(float))
