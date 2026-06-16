@@ -1,26 +1,16 @@
 #!/usr/bin/env python3
-"""Module that defines the likelihood function for a binomial distribution."""
+"""Module to calculate binomial likelihood profiles."""
 import numpy as np
 
 
 def likelihood(x, n, P):
-    """Calculate the likelihood of obtaining the data for each probability in P.
-
-    Args:
-        x (int): The number of patients that develop severe side effects.
-        n (int): The total number of patients observed.
-        P (numpy.ndarray): A 1D array containing various hypothetical
-            probabilities of developing severe side effects.
-
-    Returns:
-        numpy.ndarray: A 1D array containing the likelihood for each
-            probability in P, respectively.
-    """
+    """Calculate the likelihood of data for each probability in P."""
     if type(n) is not int or n <= 0:
         raise ValueError("n must be a positive integer")
     if type(x) is not int or x < 0:
-        msg = "x must be an integer that is greater than or equal to 0"
-        raise ValueError(msg)
+        raise ValueError(
+            "x must be an integer that is greater than or equal to 0"
+        )
     if x > n:
         raise ValueError("x cannot be greater than n")
     if type(P) is not np.ndarray or len(P.shape) != 1:
