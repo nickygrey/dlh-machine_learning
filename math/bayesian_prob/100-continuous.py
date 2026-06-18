@@ -23,4 +23,4 @@ def posterior(x, n, p1, p2):
     a = x + 1
     b = n - x + 1
 
-    return float(special.betainc(a, b, p2) - special.betainc(a, b, p1))
+    return special.betainc(a, b, p2) - special.betainc(a, b, p1)
